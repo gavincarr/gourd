@@ -1,0 +1,5 @@
+---
+title: "Swap Space Usage"
+target:
+  - 'aliasByNode(agents.*.swap.used,1)'
+hideLegend: false

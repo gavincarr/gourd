@@ -1,0 +1,30 @@
+Gourd
+=====
+
+Gourd is a minimalist graphite dashboard, generating static html pages
+from templates and graph definition files.
+
+
+Setup
+-----
+
+Prerequisites: rake, and the following perl modules:
+
+  - Mason
+  - URI
+  - URI::Query
+
+Initial setup:
+
+  # Copy examples to the 'graphs' directory
+  cp -r Examples graphs
+
+  # Update defaults
+  $EDITOR graphs/defaults.yml
+
+  # Update and/or add additional graphs
+  $EDITOR/graphs/[0-9]*.yml
+
+  # Generate html output
+  rake
+

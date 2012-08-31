@@ -1,5 +1,7 @@
 .*.sw?
 *~
 TODO
-graphs/*.yml
-html/*.html
+*/*.yml
+*/html
+graphs
+!Examples/*.yml

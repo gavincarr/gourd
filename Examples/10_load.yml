@@ -1,0 +1,5 @@
+---
+title: "System Load"
+target:
+  - 'aliasByNode(agents.*.load.longterm,1)'
+hideLegend: false
