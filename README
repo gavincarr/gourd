@@ -11,8 +11,11 @@ Setup
 Prerequisites: rake, and the following perl modules:
 
   - Mason
+  - Hash::Merge
   - URI
   - URI::Query
+  - YAML
+
 
 Initial setup:
 

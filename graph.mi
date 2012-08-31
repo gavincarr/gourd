@@ -10,7 +10,6 @@ use Hash::Merge qw(merge);
 use YAML qw(LoadFile);
 use URI;
 use URI::Query;
-use Data::Dump qw(pp);
 my $graph = merge(LoadFile($.file), $.defaults);
 my $uri = URI->new(delete $graph->{uri});
 my $qq = URI::Query->new($graph);
