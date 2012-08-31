@@ -1,0 +1,5 @@
+.*.sw?
+*~
+TODO
+graphs/*.yml
+html/*.html
