@@ -3,7 +3,7 @@ has 'file'      => ( required => 1 );
 has 'defaults'  => ( required => 1 );
 </%class>
 <span class="graph" style="width:620px" data-from="<% $from %>">\
-<a href="<% $uri %>">\
+<a href="<% $uri2 %>" target="_blank">\
 <img src="<% $uri %>" width="<% $graph->{width} %>" height="<% $graph->{height} %>">\
 </a></span>
 <%init>
@@ -15,7 +15,11 @@ my $graph = LoadFile($.file);
 my $from = $graph->{from};
 $graph = merge($graph, $.defaults);
 my $uri = URI->new(delete $graph->{uri});
+my $uri2 = $uri->clone;
 my $qq = URI::Query->new($graph);
 $uri->query($qq);
+my $enlarge_factor = $.defaults->{enlarge_factor} || 1.25;
+$uri2->query($qq->replace(width =>  int($graph->{width}  * $enlarge_factor),
+                          height => int($graph->{height} * $enlarge_factor)));
 </%init>
 % # vim:ft=mason

@@ -3,4 +3,5 @@ title: Metrics
 uri: 'http://graphite.example.com/render'
 width: 620
 height: 480
+enlarge_factor: 1.25
 from: '-1w'
