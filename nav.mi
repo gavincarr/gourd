@@ -1,6 +1,13 @@
+<%class>
+has 'from'      => ( required => 1 );
+</%class>
 <div class="nav">
 % while (my ($label, $from) = $period_it->()) {
-<a id="nav_<% substr($from, 1) %>" href="?from=<% $from %>" data-from="<% $from %>"><% $label %></a>
+<a id="nav_<% substr($from, 1) %>"\
+%   if ($.from eq $from) {
+ class="selected"\
+% }
+ href="?from=<% $from %>" data-from="<% $from %>"><% $label %></a>
 % } 
 </div>
 <%init>

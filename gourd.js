@@ -11,6 +11,8 @@ function munge_graphs(from, omit_history) {
     }
   }
 
+  // Mark nav as selected
+  $('div.nav a.selected').removeClass('selected');
   $('#nav_' + from.substring(1)).addClass('selected');
 
   $("span.graph").each(function() {
