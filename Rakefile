@@ -1,12 +1,13 @@
 
 task :default => 'graphs/html/index.html'
-task :all => [ :default, :sync ]
+task :all => [ :default, :push ]
 
 file 'graphs/html/index.html' => FileList['index.mc', 'graphs/defaults.yml', 'graphs/[0-9]*.yml'] do |t|
   sh "mason2.pl index.mc >| #{t.name}"
 end
 
-task :sync do
-  sh "rsync -aL --progress screen.css graphs/html/* www.example.com:/var/www/html/gourd"
+task :push do
+# sh "rsync -aL --progress screen.css gourd.js graphs/html/* www.example.com:/var/www/html/gourd"
+  sh "rsync -aL --progress screen.css gourd.js graphs/html/* mercury:/var/www/html/sysmetrics/gourd"
 end
 

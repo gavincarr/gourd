@@ -3,4 +3,4 @@ title: Metrics
 uri: 'http://graphite.example.com/render'
 width: 620
 height: 480
-from: '-1week'
+from: '-1w'

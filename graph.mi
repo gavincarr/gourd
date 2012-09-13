@@ -2,7 +2,8 @@
 has 'file'      => ( required => 1 );
 has 'defaults'  => ( required => 1 );
 </%class>
-<span class="graph" style="width:620px"><a href="<% $uri %>">\
+<span class="graph" style="width:620px" data-from="<% $from %>">\
+<a href="<% $uri %>">\
 <img src="<% $uri %>" width="<% $graph->{width} %>" height="<% $graph->{height} %>">\
 </a></span>
 <%init>
@@ -10,7 +11,9 @@ use Hash::Merge qw(merge);
 use YAML qw(LoadFile);
 use URI;
 use URI::Query;
-my $graph = merge(LoadFile($.file), $.defaults);
+my $graph = LoadFile($.file);
+my $from = $graph->{from};
+$graph = merge($graph, $.defaults);
 my $uri = URI->new(delete $graph->{uri});
 my $qq = URI::Query->new($graph);
 $uri->query($qq);

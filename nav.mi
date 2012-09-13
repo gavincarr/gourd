@@ -1,0 +1,21 @@
+<div class="nav">
+% while (my ($label, $from) = $period_it->()) {
+<a id="nav_<% substr($from, 1) %>" href="?from=<% $from %>" data-from="<% $from %>"><% $label %></a>
+% } 
+</div>
+<%init>
+use List::MoreUtils qw(natatime);
+# label => graphite from value - see http://graphite.readthedocs.org/en/latest/render_api.html#from-until
+my @periods = (
+  '1 hour'      => '-1h',
+  '2 hours'     => '-2h',
+  '1 day'       => '-1d',
+  '2 days'      => '-2d',
+  '1 week'      => '-1w',
+  '2 weeks'     => '-2w',
+  '1 month'     => '-1mon',
+  '2 months'    => '-2mon',
+);
+my $period_it = natatime 2, @periods;
+</%init>
+% # vim:ft=mason

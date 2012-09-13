@@ -14,15 +14,15 @@ img { border: none }
 a { text-decoration: none }
 
 div.nav {
+  clear: both;
   text-align: center;
 }
-div.nav .navitem {
+div.nav a {
   font-weight: bold;
-}
-a.navitem {
+  margin: 8px;
   color: #66f;
 }
-span.navitem {
+div.nav a.selected {
   color: #666;
 }
 
