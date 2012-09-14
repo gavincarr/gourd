@@ -7,7 +7,6 @@ file 'graphs/html/index.html' => FileList['index.mc', 'graphs/defaults.yml', 'gr
 end
 
 task :push do
-# sh "rsync -aL --progress screen.css gourd.js graphs/html/* www.example.com:/var/www/html/gourd"
-  sh "rsync -aL --progress screen.css gourd.js graphs/html/* mercury:/var/www/html/sysmetrics/gourd"
+  sh "rsync -aL --progress screen.css gourd.js graphs/html/* www.example.com:/var/www/html/gourd"
 end
 
