@@ -1,12 +1,19 @@
 
-task :default => 'graphs/html/index.html'
-task :all => [ :default, :push ]
+html = []
+Dir.glob('graphs/*') do |dir|
+  next if not File.directory? dir
 
-file 'graphs/html/index.html' => FileList['index.mc', 'graphs/defaults.yml', 'graphs/[0-9]*.yml'] do |t|
-  sh "mason2.pl index.mc >| #{t.name}"
+  html.push "#{dir}.html"
+
+  file "#{dir}.html" => FileList['index.mc', "#{dir}/defaults.yml", "#{dir}/[0-9*.yml"] do |t|
+    sh "mason2.pl --args '{\"dir\":\"#{dir}\"}' index.mc >| #{t.name}"
+  end
 end
 
+task :default => html
+task :all => [ :default, :push ]
+
 task :push do
-  sh "rsync -aL --progress screen.css gourd.js graphs/html/* www.example.com:/var/www/html/gourd"
+# sh "rsync -aL --progress screen.css gourd.js graphs/*.html www.example.com:/var/www/html/gourd"
 end
 

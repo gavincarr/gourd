@@ -1,3 +1,6 @@
+<%class>
+has 'dir'   => ( required => 1 );
+</%class>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +12,7 @@
 <body>
 <& nav.mi, from => $defaults->{from} &>
 <div class="graphs">
-% for my $graph (sort glob("graphs/[0-9]*.yml")) {
+% for my $graph (sort glob($.dir . "/[0-9]*.yml")) {
 <& graph.mi, defaults => $defaults, file => $graph &>
 % }
 </div>
@@ -17,6 +20,6 @@
 </html>
 <%init>
 use YAML qw(LoadFile);
-my $defaults = LoadFile('graphs/defaults.yml');
+my $defaults = LoadFile($.dir . '/defaults.yml');
 </%init>
 % # vim:ft=mason
