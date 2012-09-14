@@ -1,4 +1,7 @@
-function munge_graphs(from, omit_history) {
+var refresh_timeout = 60000;
+
+// Munge from parameter on graph images and links
+function munge_graph_from_parameters(from, omit_history) {
   if (! omit_history) {
     if (typeof window.history.pushState == 'function') {
       var query = window.location.search.replace(/([?&;]from=)([^&;]+)/, '$1' + from);
@@ -35,17 +38,29 @@ function munge_graphs(from, omit_history) {
   });
 }
 
+// Refresh images
+function refresh_images() {
+  var timestamp = Math.floor(new Date().getTime() / 1000);
+  $("span.graph img").each(function() {
+    var src = $(this).attr('src');
+    src.replace(/[&;]ts=\d+/, '');
+    $(this).attr('src', src + '&ts=' + timestamp);
+  });
+}
+
 $(document).ready(function() {
+  setInterval(function() { refresh_images() }, refresh_timeout);
+
   // Handle from parameter in query
   var query = window.location.search;
   var match = query.match(/[?&;]from=([^&;]+)/);
   if (match) {
-    munge_graphs(match[1], true);
+    munge_graph_from_parameters(match[1], true);
   }
 
   // click handler for nav links
   $(".navitem").click(function() {
-    munge_graphs($(this).data("from"));
+    munge_graph_from_parameters($(this).data("from"));
     return false;
   });
 });
