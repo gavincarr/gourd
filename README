@@ -20,14 +20,14 @@ Prerequisites: rake, and the following perl modules:
 Initial setup:
 
   # Copy examples to the 'graphs' directory
-  cp -r Examples graphs
+  cp -r Examples graphs/examples
 
   # Update defaults
-  $EDITOR graphs/defaults.yml
+  $EDITOR graphs/examples/defaults.yml
 
   # Update and/or add additional graphs
-  $EDITOR/graphs/[0-9]*.yml
+  $EDITOR/graphs/examples/[0-9]*.yml
 
-  # Generate html output
+  # Generate html output (will create graphs/examples.html)
   rake
 

@@ -3,5 +3,4 @@
 TODO
 */*.yml
 */html
-graphs
 !Examples/*.yml
