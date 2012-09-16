@@ -2,7 +2,10 @@ Gourd
 =====
 
 Gourd is a minimalist graphite dashboard, generating static html pages
-from templates and graph definition files.
+from templates and graph definition files. Gourd can be run on an admin
+machine, and the resultant html files pushed to your webserver on changes.
+Dynamic behaviour such as period selection and graph refreshes are done
+by javascript and jquery.
 
 
 Setup
@@ -19,7 +22,7 @@ Prerequisites: rake, and the following perl modules:
 
 Initial setup:
 
-  # Copy examples to the 'graphs' directory
+  # Copy examples to a new directory within 'graphs'.
   cp -r Examples graphs/examples
 
   # Update defaults
@@ -30,4 +33,9 @@ Initial setup:
 
   # Generate html output (will create graphs/examples.html)
   rake
+
+  # Copy graphs/examples.html to your webserver (see 'push' target in Rakefile)
+  $EDITOR Rakefile
+  rake push
+
 
