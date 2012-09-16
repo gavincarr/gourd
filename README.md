@@ -22,21 +22,23 @@ Prerequisites: rake, and the following perl modules:
 
 Initial setup:
 
-  # Copy examples to a new directory within 'graphs'.
-  cp -r Examples graphs/examples
+```shell
+    # Copy examples to a new directory within 'graphs'.
+    cp -r Examples graphs/examples
 
-  # Update defaults
-  $EDITOR graphs/examples/defaults.yml
+    # Update defaults
+    $EDITOR graphs/examples/defaults.yml
 
-  # Update and/or add additional graphs
-  $EDITOR/graphs/examples/[0-9]*.yml
+    # Update and/or add additional graphs
+    $EDITOR/graphs/examples/[0-9]*.yml
 
-  # Generate html output (will create graphs/examples.html)
-  rake
+    # Generate html output (will create graphs/examples.html)
+    rake
 
-  # Copy graphs/examples.html to your webserver (see 'push' target in Rakefile)
-  $EDITOR Rakefile
-  rake push
+    # Copy graphs/examples.html to your webserver (see 'push' target in Rakefile)
+    $EDITOR Rakefile
+    rake push
+```
 
 
 Author
