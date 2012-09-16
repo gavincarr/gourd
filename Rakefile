@@ -5,7 +5,7 @@ Dir.glob('graphs/*') do |dir|
 
   html.push "#{dir}.html"
 
-  file "#{dir}.html" => FileList['index.mc', "#{dir}/defaults.yml", "#{dir}/[0-9*.yml"] do |t|
+  file "#{dir}.html" => FileList['index.mc', "#{dir}/defaults.yml", "#{dir}/[0-9]*.yml"] do |t|
     sh "mason2.pl --args '{\"dir\":\"#{dir}\"}' index.mc >| #{t.name}"
   end
 end
