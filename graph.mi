@@ -14,11 +14,11 @@ use URI::Query;
 my $graph = LoadFile($.file);
 my $from = $graph->{from};
 $graph = merge($graph, $.defaults);
+my $enlarge_factor = delete($graph->{enlarge_factor}) || 1.25;
 my $uri = URI->new(delete $graph->{uri});
 my $uri2 = $uri->clone;
 my $qq = URI::Query->new($graph);
 $uri->query($qq);
-my $enlarge_factor = $.defaults->{enlarge_factor} || 1.25;
 $uri2->query($qq->replace(width =>  int($graph->{width}  * $enlarge_factor),
                           height => int($graph->{height} * $enlarge_factor)));
 </%init>
