@@ -10,7 +10,7 @@ has 'dir'   => ( required => 1 );
 <script src="gourd.js"></script>
 </head>
 <body>
-<& nav.mi, from => $defaults->{from} &>
+<& nav.mi, from => $defaults->{from}, periods => $defaults->{periods} &>
 <div class="graphs">
 % for my $graph (sort glob($.dir . "/[0-9]*.yml")) {
 <& graph.mi, defaults => $defaults, file => $graph &>
