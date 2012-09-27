@@ -10,7 +10,7 @@ has 'dir'   => ( required => 1 );
 <script src="gourd.js"></script>
 </head>
 <body>
-<& nav.mi, from => $defaults->{from}, periods => $defaults->{periods} &>
+<& nav.mi, from => $defaults->{from}, periods => $periods &>
 <div class="graphs">
 % for my $graph (sort glob($.dir . "/[0-9]*.yml")) {
 <& graph.mi, defaults => $defaults, file => $graph &>
@@ -21,5 +21,6 @@ has 'dir'   => ( required => 1 );
 <%init>
 use YAML qw(LoadFile);
 my $defaults = LoadFile($.dir . '/defaults.yml');
+my $periods = delete $defaults->{periods};
 </%init>
 % # vim:ft=mason
