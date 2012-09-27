@@ -24,18 +24,18 @@ Initial setup:
 
 ```shell
     # Copy examples to a new directory within 'graphs'.
-    cp -r Examples graphs/examples
+    cp -r Examples graphs/dashboard1
 
     # Update defaults
-    $EDITOR graphs/examples/defaults.yml
+    $EDITOR graphs/dashboard1/defaults.yml
 
     # Update and/or add additional graphs
-    $EDITOR/graphs/examples/[0-9]*.yml
+    $EDITOR/graphs/dashboard1/[0-9]*.yml
 
-    # Generate html output (will create graphs/examples.html)
+    # Generate html output (will create graphs/dashboard1.html)
     rake
 
-    # Copy graphs/examples.html to your webserver (see 'push' target in Rakefile)
+    # Copy graphs/dashboard1.html to your webserver (adjust 'push' target in Rakefile)
     $EDITOR Rakefile
     rake push
 ```
