@@ -2,7 +2,7 @@
 has 'file'      => ( required => 1 );
 has 'defaults'  => ( required => 1 );
 </%class>
-<span class="graph" style="width:620px" data-from="<% $from %>">\
+<span class="graph" data-from="<% $from %>">\
 <a href="<% $uri2 %>" target="_blank">\
 <img src="<% $uri %>" width="<% $graph->{width} %>" height="<% $graph->{height} %>">\
 </a></span>
